@@ -29,10 +29,11 @@ func readCsvFile(filepath string) [][]string {
 }
 
 func main() {
+	csvFilename := flag.String("csv", "problems.csv", "a csv file in the format of 'question,asnwer'")
 	timerTime := flag.Int("time", 30, "Set timer time, default value is 30")
 	flag.Parse()
-
-	records := readCsvFile("../problems.csv")
+	//"../problems.csv"
+	records := readCsvFile(fmt.Sprintf("../%s", *csvFilename))
 
 	fmt.Print("Press ENTER to continue")
 	fmt.Scanln()
